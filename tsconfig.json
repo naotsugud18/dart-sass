@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es5",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "lib": [
+      "es2020",
+      "dom",
+    ]
+  },
+  "include": [
+    "develop/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "public"
+  ]
+}
