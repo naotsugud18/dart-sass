@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./public/",
+    "outDir": "./docs/",
     "sourceMap": true,
     "strict": true,
     "target": "es5",
