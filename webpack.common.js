@@ -10,7 +10,7 @@ const path = require('path'),
 
       // setting : paths
       DIR_INPUT_ROOT = path.resolve(__dirname, './develop'),
-      DIR_OUTPUT_ROOT = path.resolve(__dirname, './public'),
+      DIR_OUTPUT_ROOT = path.resolve(__dirname, './docs'),
 
       targetTypes = {
         scss: 'css',

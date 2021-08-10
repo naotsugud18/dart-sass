@@ -13,7 +13,7 @@ module.exports = merge(common, {
     disableHostCheck: true,
     open: true,
     // openPage: ``,
-    contentBase: path.resolve(__dirname, './public'),
+    contentBase: path.resolve(__dirname, './docs'),
     watchContentBase: true,
     historyApiFallback: true,
     compress: true,
