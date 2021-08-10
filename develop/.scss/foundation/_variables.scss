@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use 'functions' as func;
+@forward 'easings';
+
+// pc
+$size-pc: (
+  container: 1060,
+  inner: 1000,
+  gutter: 30,
+  margin: 60,
+  button: 78,
+) !default;
+
+// tablet
+$size-tb: 768 !default;
+
+// sp
+$size-sp: (
+  container: 375,
+  inner: 335,
+  gutter: 20,
+  margin: 40,
+  button: 58,
+) !default;
+
+$font-famiy: 'Noto Sans JP', sans-serif !default;
+$imagePath: '../img/' !default;
+
+// colors
+@function palette($palette-group, $palette-type: 'default') {
+  @return map.get(map.get($palettes, $palette-group), $palette-type);
+}
+$palettes: (
+  'red': (
+    'default': #de6e5a,
+  ),
+  'blue': (
+    'default': #0f66ba,
+  ),
+  'gray': (
+    'default': #f4f4f4,
+  ),
+  'color': (
+    'default': #444,
+    'gray': #bbb,
+  ),
+  'link': (
+    'default': #0066c0,
+  ),
+  'table': (
+    'border': #e0e0e0,
+    'th': #f4f4f4,
+  ),
+) !default;

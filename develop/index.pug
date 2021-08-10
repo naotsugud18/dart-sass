@@ -1,0 +1,108 @@
+extends /.pug/layout.pug
+
+block append vars
+
+block content
+  .c-container
+    h1.c-title 見出し（h1）
+
+    //- 見出し
+    section.c-content
+      h2.c-hdg 見出し（h2）
+      h3.c-hdg.c-hdg--h3 見出し（h3）
+      h4.c-hdg.c-hdg--h4 見出し（h4）
+
+    //- 本文
+    section.c-content
+      h2.c-hdg 本文
+      p 左揃えテキスト
+      p.u-alignCenter 中横揃えテキスト
+      p.u-alignRight 左揃えテキスト
+      p: a(href=`#`) テキストリンク
+
+    //- 画像
+    section.c-content
+      h2.c-hdg 画像
+      figure.c-figure
+        img(src=`${IMAGES_PATH}dummy-s.png`, alt='')
+        figcaption キャプションキャプションキャプションキャプションキャプションキャプションキャプションキャプションキャプションキャプション
+
+    //- 回り込み（本文：左、画像：右）
+    section.c-content
+      h2.c-hdg 回り込み（本文：左、画像：右）
+      .p-float.p-float--right
+        figure.c-figure.p-float__img
+          img(src=`${IMAGES_PATH}dummy-s.png`, alt='')
+          figcaption キャプション
+        .p-float__content
+          p 回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）
+          p 回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）
+
+    //- 回り込み（本文：右、画像：左）
+    section.c-content
+      h2.c-hdg 回り込み（本文：右、画像：左）
+      .p-float.p-float--left
+        figure.c-figure.p-float__img
+          img(src=`${IMAGES_PATH}dummy-s.png`, alt='')
+          figcaption キャプション
+        .p-float__content
+          p 回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）
+          p 回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）回り込み（本文：右、画像：左）
+
+    //- ボタン
+    section.c-content
+      h2.c-hdg ボタン
+      button.c-btn(type='button') ボタン
+      //- button.c-btn(type='button', disabled) ボタン（無効）
+
+    //- 箇条書きリスト
+    section.c-content
+      h2.c-hdg 箇条書きリスト
+      ul.c-list
+        - for (var i = 1; i < 5 + 1; i++)
+          li 箇条書きリスト-#{i}
+
+    //- 番号付きリスト
+    section.c-content
+      h2.c-hdg 番号付きリスト
+      ol.c-list.c-list--numbered
+        - for (var i = 1; i < 5 + 1; i++)
+          li 番号付きリスト-#{i}
+
+    //- カラム（2列）
+    section.c-content
+      h2.c-hdg カラム（2列）
+      ul.c-column.c-column--2
+        - for (var i = 1; i < 5 + 1; i++)
+          li: a(href=`#`)
+            figure.c-figure
+              img(src=`${IMAGES_PATH}dummy.png`, alt='')
+            | カラム（2列）-#{i}
+
+    //- カラム（3列）
+    section.c-content
+      h2.c-hdg カラム（3列）
+      ul.c-column.c-column--3
+        - for (var i = 1; i < 7 + 1; i++)
+          li: a(href=`#`)
+            figure.c-figure
+              img(src=`${IMAGES_PATH}dummy.png`, alt='')
+            | カラム（3列）-#{i}
+
+    //- 表組
+    section.c-content
+      h2.c-hdg 表組
+      table.c-table
+        thead: tr
+          th th
+          th th
+          th th
+        tbody
+          tr
+            th th
+            td td
+            td td
+          tr
+            th th
+            td td
+            td td

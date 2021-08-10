@@ -1,0 +1,15 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.c-title {
+  @include mixin.bp(md) {
+    @include mixin.fs(40, 80);
+    margin-bottom: map.get(v.$size-pc, margin) +px;
+  }
+  @include mixin.bp(sm) {
+    @include mixin.fs(24, 48);
+    margin-bottom: map.get(v.$size-sp, margin) +px;
+  }
+}

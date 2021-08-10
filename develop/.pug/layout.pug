@@ -1,0 +1,20 @@
+//- variables
+block vars
+  -
+    var RELATIVE_PATH = `/`,
+        ASSETS_PATH = `${RELATIVE_PATH}assets/`,
+        IMAGES_PATH = `${ASSETS_PATH}img/`;
+
+doctype html
+html(lang='ja')
+  head
+    include /.pug/head.pug
+  body
+    .l-root#root
+      include /.pug/header.pug
+      main.l-main#main
+        block content
+      include /.pug/footer.pug
+    //- script
+    block bodyScript
+    script(src=`${ASSETS_PATH}js/script.js`)

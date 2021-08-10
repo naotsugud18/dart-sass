@@ -1,0 +1,35 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.c-table {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #{mixin.color(v.palette('table', 'border'))};
+  border-left: 1px solid #{mixin.color(v.palette('table', 'border'))};
+  th, td {
+    border-right: 1px solid #{mixin.color(v.palette('table', 'border'))};
+    border-bottom: 1px solid #{mixin.color(v.palette('table', 'border'))};
+  }
+  th {
+    font-weight: 600;
+    text-align: left;
+    background: #{mixin.color(v.palette('table', 'th'))};
+  }
+  @include mixin.bp(md) {
+    th, td {
+      padding: map.get(v.$size-pc, gutter) +px;
+    }
+    // th {
+    //   width: math.div(map.get(v.$size-pc, inner), 4) +px;
+    // }
+  }
+  @include mixin.bp(sm) {
+    th, td {
+      padding: map.get(v.$size-sp, gutter) +px;
+    }
+  }
+}

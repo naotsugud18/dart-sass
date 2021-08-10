@@ -1,0 +1,99 @@
+@use 'sass:map';
+@use 'sass:math';
+@use 'variables' as v;
+@use 'mixins' as mixin;
+@use 'functions' as func;
+
+:root {
+  --body-bg: #fff;
+  --body-color: #{func.rgb2hex(v.palette('color'))};
+
+  --link-color: #{func.rgb2hex(v.palette('link'))};
+}
+
+html {
+  font-size: 62.5%;
+  font-kerning: normal;
+  word-wrap : break-word;
+  overflow-wrap : break-word;
+}
+
+body {
+  @include mixin.fs(16, 24);
+  font-family: v.$font-famiy;
+  color: rgb(var(--body-color));
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  // &.is-fixed {
+  //   position: fixed;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+}
+
+[data-whatintent='mouse'],
+[data-whatintent='touch'] {
+  *:focus {
+    outline: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  transition: opacity .2s v.$easeInOutQuad;
+  &:hover {
+    opacity: .7;
+  }
+  .l-main & {
+    text-decoration: underline;
+    color: rgb(var(--link-color));
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+ul, ol {
+  list-style-type: none;
+}
+
+button, input, select {
+  appearance: none;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  &::placeholder {
+    color: #{mixin.color(v.palette('color', 'gray'))};
+  }
+}
+
+input {
+  &[type=radio],
+  &[type=checkbox] {
+    display: none;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}

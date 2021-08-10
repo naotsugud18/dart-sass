@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.p-float {
+  @include mixin.bp(md) {
+    @include mixin.clearfix;
+    &__img {
+      $gutter: map.get(v.$size-pc, gutter);
+      margin-bottom: $gutter +px;
+      .p-float--left & {
+        float: left;
+        margin-right: $gutter +px;
+      }
+      .p-float--right & {
+        float: right;
+        margin-left: $gutter +px;
+      }
+    }
+  }
+  @include mixin.bp(sm) {
+    display: flex;
+    flex-wrap: wrap;
+    &__img,
+    &__content {
+      width: 100%;
+    }
+    &__img {
+      order: 2;
+      margin-top: map.get(v.$size-sp, gutter) +px;
+    }
+    &__content {
+      order: 1;
+    }
+  }
+}

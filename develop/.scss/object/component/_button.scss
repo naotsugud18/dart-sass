@@ -1,0 +1,97 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+@use '../../foundation/functions' as func;
+
+.c-btn {
+  $btn-pc: (
+    width: func.decimal-ceil(math.div(map.get(v.$size-pc, inner), 3)),
+    font: 20,
+    icon: 24,
+  );
+  $btn-sp: (
+    width: map.get(v.$size-sp, inner),
+    font: 16,
+    icon: 24,
+  );
+  display: block;
+  position: relative;
+  font-weight: 600;
+  text-align: left;
+  border: 1px solid rgb(var(--body-color));
+  margin-left: auto;
+  margin-right: auto;
+  transition: color .2s v.$easeInOutQuad;
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    pointer-events: none;
+    transform: translate(0, -50%);
+  }
+  &::before {
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #{mixin.color(v.palette('color'))};
+    transition: width .2s v.$easeInOutQuad;
+  }
+  &::after {
+    @include mixin.icons('<svg xmlns="http://www.w3.org/2000/svg"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"/></svg>');
+    transition: background .2s v.$easeInOutQuad, transform .2s v.$easeInOutQuad;
+  }
+  &:hover {
+    color: #fff;
+    opacity: 1;
+    &::before {
+      width: 100%;
+    }
+    &::after {
+      @include mixin.icons('<svg xmlns="http://www.w3.org/2000/svg"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" fill="#fff"/></svg>');
+    }
+  }
+  &:disabled {
+    color: #{mixin.color(v.palette('color', 'gray'))};
+    border-color: #{mixin.color(v.palette('color', 'gray'))};
+    pointer-events: none;
+    &::after {
+      @include mixin.icons('<svg xmlns="http://www.w3.org/2000/svg"><path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z" fill="#{mixin.color(v.palette('color', 'gray'))}"/></svg>');
+    }
+  }
+  @include mixin.bp(md) {
+    @include mixin.fs(map.get($btn-pc, font), map.get($btn-pc, font));
+    @include mixin.w(map.get($btn-pc, width));
+    padding: math.div(map.get(v.$size-pc, button) - map.get($btn-pc, font), 2) +px;
+    padding-right: (map.get(v.$size-pc, gutter) * 2) + map.get($btn-pc, icon) +px;
+    &::after {
+      right: map.get(v.$size-pc, gutter) +px;
+      width: map.get($btn-pc, icon) +px;
+      height: map.get($btn-pc, icon) +px;
+    }
+    &:hover  {
+      &::after {
+        transform: translate(math.div(map.get(v.$size-pc, gutter), 2) +px, -50%);
+      }
+    }
+  }
+  @include mixin.bp(sm) {
+    @include mixin.fs(map.get($btn-sp, font), map.get($btn-sp, font));
+    @include mixin.w(map.get($btn-sp, width));
+    padding: math.div(map.get(v.$size-sp, button) - map.get($btn-sp, font), 2) +px;
+    padding-right: (map.get(v.$size-sp, gutter) * 2) + map.get($btn-sp, icon) +px;
+    &::after {
+      right: map.get(v.$size-sp, gutter) +px;
+      width: map.get($btn-sp, icon) +px;
+      height: map.get($btn-sp, icon) +px;
+    }
+    &:hover  {
+      &::after {
+        transform: translate(math.div(map.get(v.$size-sp, gutter), 2) +px, -50%);
+      }
+    }
+  }
+}

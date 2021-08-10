@@ -1,0 +1,29 @@
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.u-block {
+  display: block;
+  &Inline {
+    display: inline-block;
+  }
+}
+
+.u-tel {
+  text-decoration: none;
+  background: #{mixin.color(v.palette('color'))};
+  @include mixin.bp(md) {
+    pointer-events: none;
+  }
+}
+
+@include mixin.bp(md) {
+  .u-spOnly {
+    display: none;
+  }
+}
+
+@include mixin.bp(sm) {
+  .u-pcOnly {
+    display: none;
+  }
+}

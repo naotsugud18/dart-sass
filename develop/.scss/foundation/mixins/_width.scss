@@ -1,0 +1,23 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../variables' as v;
+
+@mixin w($width, $unit: null) {
+  @if ($unit) {
+    width: 100%;
+    max-width: #{$width}#{$unit};
+  }
+  @else {
+    width: 100%;
+    max-width: $width + px;
+  }
+}
+
+@function pw($width, $container: map.get(v.$size-pc, inner)) {
+  @return math.div($width, $container) * 100%;
+}
+
+@function vw($size, $viewport: map.get(v.$size-pc, inner)) {
+  $rate: math.div(100, $viewport);
+  @return $rate * $size * 1vw;
+}

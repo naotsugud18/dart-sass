@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  $position: (
+    't': 'top',
+    'b': 'bottom',
+    'l': 'left',
+    'r': 'right',
+  );
+  @each $key, $value in $position {
+    .u-#{$abbrev}#{$key} {
+      @for $i from 0 through 5 {
+        &#{$i}em {
+          #{$prop}-#{$value}: $i +em;
+        }
+      }
+      @include mixin.bp(md) {
+        &Gutter {
+          #{$prop}-#{$value}: map.get(v.$size-pc, gutter) +px;
+        }
+        &Margin {
+          #{$prop}-#{$value}: map.get(v.$size-pc, margin) +px;
+        }
+      }
+      @include mixin.bp(sm) {
+        &Gutter {
+          #{$prop}-#{$value}: map.get(v.$size-sp, gutter) +px;
+        }
+        &Margin {
+          #{$prop}-#{$value}: map.get(v.$size-sp, margin) +px;
+        }
+      }
+    }
+  }
+}

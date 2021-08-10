@@ -1,0 +1,29 @@
+@use 'sass:map';
+@use '../variables' as v;
+
+@mixin bp($point) {
+  $sm: '(max-width: #{v.$size-tb - 1}px)';
+  $md: '(min-width: #{v.$size-tb}px)';
+  $lg: '(min-width: #{v.$size-tb}px) and (max-width: #{map.get(v.$size-pc, container)}px)';
+  $xl: '(min-width: #{map.get(v.$size-pc, container) + 1}px)';
+  @if $point == sm {
+    @media #{$sm} {
+      @content;
+    }
+  }
+  @else if $point == md {
+    @media #{$md} {
+      @content;
+    }
+  }
+  @else if $point == lg {
+    @media #{$lg} {
+      @content;
+    }
+  }
+  @else if $point == xl {
+    @media #{$xl} {
+      @content;
+    }
+  }
+}

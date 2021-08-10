@@ -1,0 +1,12 @@
+@use '../functions' as func;
+
+@mixin icons($icon, $size: null) {
+  background-image: url('data:image/svg+xml;base64,' + func.base64Encode($icon));
+  background-repeat: no-repeat;
+  @if ($size) {
+    background-size: $size +px auto;
+  }
+  @else {
+    background-size: 100% auto;
+  }
+}

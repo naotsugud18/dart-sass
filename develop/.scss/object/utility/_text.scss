@@ -1,0 +1,42 @@
+.u-align {
+  &Left {
+    text-align: left;
+  }
+  &Center {
+    text-align: center;
+  }
+  &Right {
+    text-align: right;
+  }
+}
+
+.u-vertical {
+  &Top {
+    vertical-align: top;
+  }
+  &Middle {
+    vertical-align: middle;
+  }
+  &Bototm {
+    vertical-align: bottom;
+  }
+  &Baseline {
+    vertical-align: baseline;
+  }
+}
+
+.u-underline {
+  text-decoration: underline;
+}
+
+.u-lineThrough {
+  text-decoration: line-through;
+}
+
+.u-undecorated {
+  text-decoration: none;
+}
+
+.u-bold {
+  font-weight: 600;
+}

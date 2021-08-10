@@ -1,0 +1,20 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.c-container {
+  @include mixin.bp(md) {
+    $padding: math.div(map.get(v.$size-pc, container) - map.get(v.$size-pc, inner), 2);
+    @include mixin.w(map.get(v.$size-pc, container));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $padding +px;
+    padding-right: $padding +px;
+  }
+  @include mixin.bp(sm) {
+    $padding: math.div(map.get(v.$size-sp, container) - map.get(v.$size-sp, inner), 2);
+    padding-left: $padding +px;
+    padding-right: $padding +px;
+  }
+}

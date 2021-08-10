@@ -1,0 +1,5 @@
+@use '../functions' as func;
+
+@function color($color) {
+  @return 'rgb(#{func.rgb2hex($color)})';
+}

@@ -1,0 +1,29 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+@use '../../foundation/functions' as func;
+
+.c-hdg {
+  position: relative;
+  @include mixin.bp(md) {
+    @include mixin.fs(28, 48);
+    margin-bottom: map.get(v.$size-pc, gutter) +px;
+    &--h3 {
+      @include mixin.fs(24, 41);
+    }
+    &--h4 {
+      @include mixin.fs(20, 34);
+    }
+  }
+  @include mixin.bp(sm) {
+    @include mixin.fs(20, 30);
+    margin-bottom: map.get(v.$size-sp, gutter) +px;
+    &--h3 {
+      @include mixin.fs(18, 31);
+    }
+    &--h4 {
+      @include mixin.fs(16, 27);
+    }
+  }
+}

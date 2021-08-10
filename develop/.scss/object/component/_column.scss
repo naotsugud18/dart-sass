@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.c-column {
+  @include mixin.bp(md) {
+    display: flex;
+    flex-wrap: wrap;
+    @for $i from 1 through 6 {
+      &--#{$i} {
+        > * {
+          @include mixin.column($i);
+        }
+      }
+    }
+  }
+  @include mixin.bp(sm) {
+    > * {
+      margin-bottom: map.get(v.$size-sp, gutter) +px;
+    }
+  }
+}

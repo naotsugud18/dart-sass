@@ -1,0 +1,18 @@
+@use 'sass:math';
+@use 'sass:map';
+@use '../variables' as v;
+
+@mixin column($column: null, $gutter: map.get(v.$size-pc, gutter), $parent: map.get(v.$size-pc, inner)) {
+  $width: math.div(math.div($parent - ($gutter * ($column - 1)), $column), $parent) * 100%;
+  $margin-right: math.div($gutter, $parent) * 100%;
+  $margin-top: math.div($gutter, $parent) * 100%;
+
+  width: $width;
+  margin-right: $margin-right;
+  &:nth-of-type(#{$column}n) {
+    margin-right: 0;
+  }
+  &:nth-of-type(n + #{$column + 1}) {
+    margin-top: $margin-top;
+  }
+}

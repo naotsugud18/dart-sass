@@ -1,0 +1,29 @@
+@use '../../foundation/variables' as v;
+@use '../../foundation/mixins' as mixin;
+
+.c-list {
+  > li {
+    position: relative;
+    padding-left: 1em;
+    &::before {
+      content: '\0030fb';
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+  }
+  &--numbered {
+    counter-reset: num;
+    > li {
+      position: relative;
+      padding-left: 1em;
+      &::before {
+        counter-increment: num;
+        content: counter(num) '.';
+        display: block;
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+}
